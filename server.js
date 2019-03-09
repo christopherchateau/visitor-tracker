@@ -11,7 +11,7 @@ app.set("port", process.env.PORT || 3000);
 
 
 app.listen(app.get("port"), () => {
-  console.log(`Cerebral Beer is running on ${app.get("port")}.`);
+  console.log(`visitor tracker is running on ${app.get("port")}.`);
 });
 
 module.exports = app;
