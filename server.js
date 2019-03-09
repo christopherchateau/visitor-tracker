@@ -17,6 +17,19 @@ app.get("/api/v1/visitor_tracker/visitors", (request, response) => {
     });
 });
 
+app.post("/api/v1/visitor_tracker/new_visitor", (request, response) => {
+  const newVisitor = request.body;
+
+  database("visitors")
+    .insert({ ...newVisitor }, "id")
+    .then(project => {
+      response.status(201).json("new visitor successfully added!");
+    })
+    .catch(error => {
+      response.status(500).json({ error: error.message });
+    });
+});
+
 app.listen(app.get("port"), () => {
   console.log(`visitor tracker is running on ${app.get("port")}.`);
 });
