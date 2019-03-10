@@ -3,12 +3,10 @@ exports.up = function(knex, Promise) {
     knex.schema.createTable("visitors", table => {
       table.increments("id").primary();
       table.string("ip");
-      table.string("org");
-      table.string("postal_code");
       table.string("country_code");
       table.string("region");
       table.string("city");
-      table.timestamps(true, true);
+      table.string("time_stamp");
     })
   ]);
 };
